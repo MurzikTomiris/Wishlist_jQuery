@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Главная страница</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <script src="./js/bootstrap.min.js"></script>
+    <link href="./Scripts/jquery-confirm.css" rel="stylesheet" />
+    <script src="./Scripts/jquery-3.4.1.min.js"></script>
+    <script src="./Scripts/jquery.canvasjs.min.js"></script>
+    <script src="./Scripts/jquery-confirm.js"></script>
+    <script src="./Index.js"></script>
+    <link href="./Index.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <h3>MyWishList</h3>
+                <p>Сервис для составления списков вещей которые вы хотели бы получить в подарок. </p>
+                <button type="button" class="btn btn-light" id="btOpenModalLogin">Войти</button>
+            </div>
+            
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Регистрация</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="login" placeholder="Логин" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" placeholder="Пароль" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="Имя" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control"  id="email" placeholder="Почта" value="" />
+                                </div>
+                                <button type="button" class="btn btn-primary" id="btnRegister">Зарегистрироваться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal login-->
+    <div class="modal fade" role="dialog" id="modalLogin">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+          <div class="modal-header p-5 pb-4 border-bottom-0">
+            <h1 class="fw-bold mb-0 fs-2">Войти в аккаунт</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+    
+          <div class="modal-body p-5 pt-0">
+            <form class="">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" id="floatingLogin" placeholder="Login">
+                <label for="floatingLogin">Логин</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Пароль</label>
+              </div>
+              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" id="btnLogin">Войти</button>
+              <small class="text-body-secondary">Продолжая пользоваться сервисом вы соглашаетесь с Правилами использования</small>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

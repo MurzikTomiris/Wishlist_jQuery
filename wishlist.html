@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Wishlist</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <script src="./js/bootstrap.min.js"></script>
+    <link href="./Scripts/jquery-confirm.css" rel="stylesheet" />
+    <script src="./Scripts/jquery-3.4.1.min.js"></script>
+    <script src="./Scripts/jquery.canvasjs.min.js"></script>
+    <script src="./Scripts/jquery-confirm.js"></script>
+    <script src="./Wishlist.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    
+
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Добро пожаловать</h1>
+        <p class="lead text-body-secondary">Сервис для создания вишлистов. Создай список желаний, поделись им с друзьями и получай только «те самые» подарки.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2" id="btnCreateWishlist">Создать вишлист</a>
+          <a href="#" class="btn btn-secondary my-2" id="btnAccount">Мой аккаунт</a>
+          <a href="#" class="btn btn-secondary my-2" id="btnDeleteAccount">Удалить аккаунт</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div  id="cards" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <!--<div class="col">
+          <div class="card shadow-sm">
+            <img src="C:\Tomiris\Courses\Step\php\WishlistFront\Wishlist.png" class="img-fluid" alt="Responsive image">
+            <div class="card-body">
+              <p class="card-text" id="NameText">Название</p>
+              <p class="card-text" id="DescText">Описание</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="btnOpenWishlist">Посмотреть</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"id="btnEditWishlist">Редактировать</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="btnDeleteWishlist">Удалить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-body-secondary py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Наверх</a>
+    </p>
+    <p class="mb-1">Данный сервис позволяет создавать Вишлисты и делиться ими с друзьями и близкими!</p>
+  </div>
+</footer>
+    
+
+<!-- Modal -->
+<div class="modal fade" id="CreateWishlistModal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Создать вишлист</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="nameCreate">
+            <label for="name">Название</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="descriptionCreate">
+            <label for="description">Описание</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" id="btnCreate">Сохранить</button>
+          <small class="text-body-secondary"></small>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="EditWishlistModal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Редактировать вишлист</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          <input type="hidden" id="idUpd">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="nameUpd">
+            <label for="name">Название</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="descriptionUpd">
+            <label for="description">Описание</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" id="btnUpdWishlist">Сохранить</button>
+          <small class="text-body-secondary"></small>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal-->
+<div class="modal fade" role="dialog" id="EditAccount" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Аккаунт</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="login" placeholder="Login">
+            <label for="login">Логин</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="password" placeholder="Password">
+            <label for="password">Пароль</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="name" placeholder="Name">
+            <label for="name">Имя</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="email" placeholder="Email">
+            <label for="email">Почта</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" id="btnEditAccount">Сохранить изменения</button>
+          <small class="text-body-secondary">Продолжая пользоваться сервисом вы соглашаетесь с Правилами использования</small>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
